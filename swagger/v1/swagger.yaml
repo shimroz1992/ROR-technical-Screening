@@ -1,0 +1,43 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/libraries/{library_id}/books":
+    get:
+      summary: Retrieves books for a specific library
+      tags:
+      - Books
+      parameters:
+      - name: library_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Books found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  library:
+                    type: string
+                  books:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        status:
+                          type: string
+                        user_id:
+                          type: integer
+servers:
+- url: http://localhost:3000
+  variables:
+    defaultHost:
+      default: localhost:3000
