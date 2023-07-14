@@ -1,24 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
 
-Things you may want to cover:
+### Clone the repository
 
-* Ruby version
+```bash
+git clone https://github.com/shimroz1992/ROR-technical-Screening.git
+cd ROR-technical-Screening
 
-* System dependencies
+```
 
-* Configuration
+### Check your Ruby version
 
-* Database creation
+```bash
+ruby -v
+```
 
-* Database initialization
+The ouput should start with something like `ruby 3.1.2`
 
-* How to run the test suite
+If not, install the right ruby version using rvm (it could take a while):
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+rvm install "ruby-3.1.2"
+```
 
-* Deployment instructions
+### Install dependencies
 
-* ...
+Using [Bundler](https://github.com/bundler/bundler):
+
+```bash
+bundle
+```
+
+### Update database.yml file
+In database.yml file, edit the database configuration as required.
+
+### Initialize the database
+
+```ruby
+rails db:create db:migrate db:seed
+```
+
+### Serve
+
+```ruby
+rails s
+```
+And now you can visit the site with the URL http://localhost:3000/api-docs/index.html
+
+### Additonal Info
+if you create changes in spec folder
+run below command
+
+```bash
+rake rswag:specs:swaggerize 
+```
